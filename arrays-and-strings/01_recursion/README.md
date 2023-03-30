@@ -10,8 +10,11 @@
 
 ### Example: Factorial
 
-```python
-factorial = n * factorial(n-1)
+```go
+func getFactorial(n int) int {
+    ...
+    return n * getFactorial(n-1) // Recursion
+}
 ```
 
 Factorial uses recursion to calculate the factorial of a given number. The factorial of a number n is the product of all positive integers from 1 to n.
