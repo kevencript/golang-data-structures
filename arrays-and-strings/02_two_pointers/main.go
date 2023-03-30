@@ -23,7 +23,15 @@ func main() {
 	*/
 	arrayOfRange := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
 	fmt.Println(returnSum(arrayOfRange))
-}
+
+	/*
+	 * ARRAY EXAMPLE 2: Return true if a given string is a palindrome, false otherwise.
+	 * 1. A string is a palindrome if it reads the same forwards as backwards.
+	 * 2. That means, after reversing it, it is still the same string. 
+	 * 3. For example: "aba", or "101".	
+	 */
+	fmt.Printf("\nIs Palindrome: %v", isPalindrome("csyyysc"))
+}	
 
 func returnSum(arr []int) string {
 	start := 0
@@ -53,4 +61,31 @@ func returnSum(arr []int) string {
 	buf.WriteString(strconv.Itoa(finalResult))
 
 	return buf.String()
+}
+
+
+func isPalindrome(s string) bool {
+	// We define a start and end pointer
+	start := 0
+	end := len(s) - 1
+
+	for start <= end {
+
+		/*
+		 * Since that the first and last character must be the same
+		 * for a string being a palindrome, we use the start and end
+		 * pointers to compare the characters.
+		 *
+		 */
+		if s[start] != s[end] { // Middlechar both Start: x, End: x are equals
+			return false
+		}
+		fmt.Printf("\nStart: %v, End: %v", string(s[start]), string(s[end]))
+		start++
+		end--
+	}
+
+	fmt.Printf("\nMiddle char: %v", string(s[(len(s) - 1) / 2]))
+
+	return true
 }
