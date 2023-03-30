@@ -48,7 +48,7 @@ func main() {
 	 * 
 	 *  Ex: Array1: [1, 3, 4, 5] Array2: [2, 6, 7, 8]
 	 */
-	fmt.Printf("\nMerge Sorted Arrays: %v", mergeAndSortTwoArrays([]int{1, 3, 4, 5}, []int{2, 6, 7, 8}))
+	fmt.Printf("\nMerge Sorted Arrays: %v", mergeAndSortTwoArrays([]int{1, 4, 7, 20, 22, 23}, []int{3, 5, 6, 8}))
 }	
 
 func returnSum(arr []int) string {
@@ -181,20 +181,18 @@ func mergeAndSortTwoArrays(firstArr []int, secondArr []int) []int {
 			sortedArr = append(sortedArr, secondArr[j])
 			j++
 		}
-
-		for i < len(firstArr) {
-			sortedArr = append(sortedArr, firstArr[i])
-			i++
-		}
-
-		for j < len(secondArr) {
-			sortedArr = append(sortedArr, secondArr[j])
-			j++
-		}
-
-	
 		// Returning a visual representation of how the values are changing
 		fmt.Println(sortedArr, firstArr[i:], secondArr[j:])
+	}
+
+	for i < len(firstArr) {
+		sortedArr = append(sortedArr, firstArr[i])
+		i++
+	}
+
+	for j < len(secondArr) {
+		sortedArr = append(sortedArr, secondArr[j])
+		j++
 	}
 
 	return sortedArr
