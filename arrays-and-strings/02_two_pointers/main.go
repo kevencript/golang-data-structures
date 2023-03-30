@@ -49,6 +49,19 @@ func main() {
 	 *  Ex: Array1: [1, 3, 4, 5] Array2: [2, 6, 7, 8]
 	 */
 	fmt.Printf("\nMerge Sorted Arrays: %v", mergeAndSortTwoArrays([]int{1, 4, 7, 20, 22, 23}, []int{3, 5, 6, 8}))
+
+
+	/* Example 4: 392. Is Subsequence.
+	 * Given two strings s and t, return true if:
+	 * 1. s is a subsequence of t, or false otherwise.
+	 *
+	 * A subsequence of a string is a new string that is formed from the original string
+	 * by deleting some (can be none) of the characters without disturbing the 
+	 * relative positions of the remaining characters.
+	 * ex (i.e., "ace" is a subsequence of "abcde" while "aec" is not).
+	 *
+	 */
+	fmt.Printf("\nIs Subsequence: %v", isSubstringSequence("abdee", "ahbgdc"))
 }	
 
 func returnSum(arr []int) string {
@@ -196,4 +209,30 @@ func mergeAndSortTwoArrays(firstArr []int, secondArr []int) []int {
 	}
 
 	return sortedArr
+}
+
+func isSubstringSequence(s string, t string) bool {
+	// We have two pointers. One to the first string and the other to the second string
+	// We will iterate through the first string and iterate it untill
+	// we find a char equals to it. When its done, we go to the next char
+	i,j := 0,0
+
+	for i < len(s) && j < len(t) {
+		// Index: 0, Len(s): 3, Array S: abc, Array T: ahbgdc
+		// Index: 1, Len(s): 3, Array S: bc, Array T: bgdc
+		// Index: 2, Len(s): 3, Array S: c, Array T: dc
+		// Index: 2, Len(s): 3, Array S: c, Array T: c
+		// Index: 3, Len(s): 3, Array S: , Array T: 
+		fmt.Printf("\nArray S: %v, Array T: %v ", s[i:], t[j:])
+		if s[i] == t[j] {
+			i++
+		}
+		
+		fmt.Printf("- Index: %v, Len(s): %v \n", i, len(s))
+		j++
+	}
+
+	// Whe the i equals to the len of the string, means that we passed
+	// through all the chars of the string
+	return i == len(s)
 }
